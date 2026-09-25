@@ -29,20 +29,19 @@ Vehical/
 │   ├── requirements.txt                # Python backend dependencies
 │   └── vehical.ipynb                   # Jupyter notebook with EDA & model training
 ├── FRONTEND/
-│   └── my-react-app/
-│       ├── public/                     # Static assets & icons
-│       ├── src/
-│       │   ├── pages/
-│       │   │   ├── Home.jsx            # Landing page & live telemetry dashboard
-│       │   │   ├── About.jsx           # Model specifications & training metrics
-│       │   │   ├── Prediction.jsx      # Claim intake form & live prediction display
-│       │   │   └── Contact.jsx         # Support & contact form
-│       │   ├── App.jsx                 # Routing configuration
-│       │   ├── Layout.jsx              # Navbar, footer, and theme controller
-│       │   └── main.jsx                # Application root
-│       ├── .env.example                # Environment variables template
-│       ├── package.json                # Frontend dependencies & scripts
-│       └── vite.config.js              # Vite server & proxy configuration
+│   ├── public/                         # Static assets & icons
+│   ├── src/
+│   │   ├── pages/
+│   │   │   ├── Home.jsx                # Landing page & live telemetry dashboard
+│   │   │   ├── About.jsx               # Model specifications & training metrics
+│   │   │   ├── Prediction.jsx          # Claim intake form & live prediction display
+│   │   │   └── Contact.jsx             # Support & contact form
+│   │   ├── App.jsx                     # Routing configuration
+│   │   ├── Layout.jsx                  # Navbar, footer, and theme controller
+│   │   └── main.jsx                    # Application root
+│   ├── .env.example                    # Environment variables template
+│   ├── package.json                    # Frontend dependencies & scripts
+│   └── vite.config.js                  # Vite server & proxy configuration
 ├── .gitignore                          # Git ignore rules for node_modules, venv, etc.
 └── README.md                           # Documentation & quickstart guide
 ```
@@ -105,7 +104,7 @@ Open a **new terminal window**:
 
 1. Navigate to the frontend directory:
    ```bash
-   cd FRONTEND/my-react-app
+   cd FRONTEND
    ```
 
 2. Install dependencies:
