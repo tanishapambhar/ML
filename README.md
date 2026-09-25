@@ -1,6 +1,6 @@
 # FraudShield AI - Vehicle Insurance Fraud Detection System
 
-FraudShield AI is an end-to-end full-stack machine learning application designed to assess, evaluate, and detect potential insurance fraud in vehicle claim filings. 
+FraudShield AI is an end-to-end full-stack machine learning application designed to assess, evaluate, and detect potential insurance fraud in vehicle claim filings.
 
 The application pairs a modern, responsive **React (Vite)** single-page application with a high-performance **FastAPI (Python)** inference engine backed by a pre-trained **Scikit-Learn Machine Learning Pipeline**.
 
@@ -8,17 +8,21 @@ The application pairs a modern, responsive **React (Vite)** single-page applicat
 
 ## 🚀 Features
 
-- **Real-Time Fraud Prediction**: Evaluates 24 claim indicators including driver demographics, accident site specifics, filing channel, vehicle specifications, and claim amounts.
-- **Dynamic Probability Scoring**: Provides an estimated risk percentage and adjuster recommendation for each claim.
-- **Modern Responsive UI**: Built with React, Vite, and Lucide Icons, featuring light/dark mode support, dynamic form validations, and interactive metric dashboards.
-- **RESTful API**: FastAPI backend providing automated OpenAPI documentation, CORS support, and health telemetry.
+* **Real-Time Fraud Prediction**: Evaluates 24 claim indicators including driver demographics, accident site specifics, filing channel, vehicle specifications, and claim amounts.
+
+* **Dynamic Probability Scoring**: Provides an estimated risk percentage and adjuster recommendation for each claim.
+
+* **Modern Responsive UI**: Built with React, Vite, and Lucide Icons, featuring light/dark mode support, dynamic form validations, and interactive metric dashboards.
+
+* **RESTful API**: FastAPI backend providing automated OpenAPI documentation, CORS support, and health telemetry.
 
 ---
 
 ## 📁 Repository Structure
 
-```
+```text
 Vehical/
+
 ├── BACKEND/
 │   ├── ml/
 │   │   ├── api/
@@ -28,6 +32,7 @@ Vehical/
 │   ├── insurance_fraud_data.csv        # Dataset used for training & analysis
 │   ├── requirements.txt                # Python backend dependencies
 │   └── vehical.ipynb                   # Jupyter notebook with EDA & model training
+│
 ├── FRONTEND/
 │   ├── public/                         # Static assets & icons
 │   ├── src/
@@ -42,8 +47,9 @@ Vehical/
 │   ├── .env.example                    # Environment variables template
 │   ├── package.json                    # Frontend dependencies & scripts
 │   └── vite.config.js                  # Vite server & proxy configuration
-├── .gitignore                          # Git ignore rules for node_modules, venv, etc.
-└── README.md                           # Documentation & quickstart guide
+│
+├── .gitignore                           # Git ignore rules for node_modules, venv, etc.
+└── README.md                            # Documentation & quickstart guide
 ```
 
 ---
@@ -51,9 +57,10 @@ Vehical/
 ## 🛠️ Prerequisites
 
 Ensure you have the following installed on your machine:
-- **Node.js** (v18.0.0 or higher) & **npm**
-- **Python** (v3.10 to v3.14) & **pip**
-- **Git**
+
+* **Node.js** (v18.0.0 or higher) & **npm**
+* **Python** (v3.10 to v3.14) & **pip**
+* **Git**
 
 ---
 
@@ -62,80 +69,101 @@ Ensure you have the following installed on your machine:
 ### 1. Setup & Start the Backend
 
 1. Navigate to the `BACKEND` directory:
-   ```bash
-   cd BACKEND
-   ```
+
+```bash
+cd BACKEND
+```
 
 2. Create a virtual environment:
-   ```bash
-   python3 -m venv venv
-   ```
 
-3. Activate the virtual environment:
-   - **macOS / Linux**:
-     ```bash
-     source venv/bin/activate
-     ```
-   - **Windows**:
-     ```bash
-     venv\Scripts\activate
-     ```
+```bash
+python3 -m venv venv
+```
+
+3. Activate the virtual environment.
+
+**macOS / Linux:**
+
+```bash
+source venv/bin/activate
+```
+
+**Windows:**
+
+```bash
+venv\Scripts\activate
+```
 
 4. Install backend dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+
+```bash
+pip install -r requirements.txt
+```
 
 5. Run the FastAPI server:
-   ```bash
-   uvicorn ml.api.main:app --host 127.0.0.1 --port 8000 --reload
-   ```
 
-   The API will be available at:
-   - **API Base URL**: `http://127.0.0.1:8000`
-   - **Interactive API Docs (Swagger)**: `http://127.0.0.1:8000/docs`
-   - **Health Check**: `http://127.0.0.1:8000/health`
+```bash
+uvicorn ml.api.main:app --host 127.0.0.1 --port 8000 --reload
+```
+
+The API will be available at:
+
+* **API Base URL:** `http://127.0.0.1:8000`
+* **Interactive API Docs (Swagger):** `http://127.0.0.1:8000/docs`
+* **Health Check:** `http://127.0.0.1:8000/health`
 
 ---
 
 ### 2. Setup & Start the Frontend
 
-Open a **new terminal window**:
+Open a **new terminal window**.
 
 1. Navigate to the frontend directory:
-   ```bash
-   cd FRONTEND
-   ```
+
+```bash
+cd FRONTEND
+```
 
 2. Install dependencies:
-   ```bash
-   npm install
-   ```
+
+```bash
+npm install
+```
 
 3. Configure environment variables (optional for default localhost):
-   ```bash
-   cp .env.example .env
-   ```
-   *(Default: `VITE_API_URL=http://127.0.0.1:8000`)*
+
+```bash
+cp .env.example .env
+```
+
+Default:
+
+```text
+VITE_API_URL=http://127.0.0.1:8000
+```
 
 4. Start the Vite development server:
-   ```bash
-   npm run dev
-   ```
+
+```bash
+npm run dev
+```
 
 5. Open your browser and navigate to:
-   ```
-   http://localhost:5173
-   ```
+
+```text
+http://localhost:5173
+```
 
 ---
 
 ## 📡 API Endpoints
 
 ### 1. `GET /health`
+
 Returns the status of the API and verifies that the ML model pipeline is loaded.
 
 **Response:**
+
 ```json
 {
   "status": "healthy",
@@ -145,9 +173,11 @@ Returns the status of the API and verifies that the ML model pipeline is loaded.
 ```
 
 ### 2. `POST /predict`
+
 Evaluates claim data and returns a fraud prediction.
 
 **Request Sample:**
+
 ```json
 {
   "age_of_driver": 35,
@@ -177,6 +207,7 @@ Evaluates claim data and returns a fraud prediction.
 ```
 
 **Response Sample:**
+
 ```json
 {
   "prediction": 0,
@@ -189,38 +220,55 @@ Evaluates claim data and returns a fraud prediction.
 
 ## 🚢 Pushing to GitHub
 
-Follow these steps to initialize git and push this project to your GitHub repository:
+Follow these steps to initialize Git and push this project to your GitHub repository.
 
-1. **Initialize Git** (from the project root directory `Vehical/`):
-   ```bash
-   git init
-   ```
+### 1. Initialize Git
 
-2. **Stage all files**:
-   ```bash
-   git add .
-   ```
+From the project root directory `Vehical/`:
 
-3. **Check status** (ensure `node_modules/`, `venv/`, and `.DS_Store` are excluded by `.gitignore`):
-   ```bash
-   git status
-   ```
+```bash
+git init
+```
 
-4. **Commit the changes**:
-   ```bash
-   git commit -m "Initial commit: full-stack vehicle insurance fraud detection system"
-   ```
+### 2. Stage all files
 
-5. **Create a new repository on GitHub** (e.g. `vehicle-insurance-fraud-detection`).
+```bash
+git add .
+```
 
-6. **Link your local repository to GitHub and push**:
-   ```bash
-   git branch -M main
-   git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_REPOSITORY_NAME>.git
-   git push -u origin main
-   ```
+### 3. Check status
+
+Ensure `node_modules/`, `venv/`, and `.DS_Store` are excluded by `.gitignore`:
+
+```bash
+git status
+```
+
+### 4. Commit the changes
+
+```bash
+git commit -m "Initial commit: full-stack vehicle insurance fraud detection system"
+```
+
+### 5. Create a repository on GitHub
+
+Create a new GitHub repository for the project.
+
+### 6. Link your local repository to GitHub
+
+```bash
+git branch -M main
+git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_REPOSITORY_NAME>.git
+```
+
+### 7. Push the project
+
+```bash
+git push -u origin main
+```
 
 ---
 
 ## 📄 License
+
 This project is licensed under the MIT License.
